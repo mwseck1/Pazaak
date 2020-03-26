@@ -1,0 +1,25 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MainDeck : Deck
+{
+    // Start is called before the first frame update
+    void Start()
+    {    
+        for(int i = 1; i <= 10; i++)
+        {
+            card.GetComponent<Card>().value = i;
+            cards.Add(Instantiate(card, new Vector3(0,0,0), Quaternion.identity) as GameObject);
+            cards.Add(Instantiate(card, new Vector3(0,0,0), Quaternion.identity) as GameObject);
+            cards.Add(Instantiate(card, new Vector3(0,0,0), Quaternion.identity) as GameObject);
+            cards.Add(Instantiate(card, new Vector3(0,0,0), Quaternion.identity) as GameObject); 
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}

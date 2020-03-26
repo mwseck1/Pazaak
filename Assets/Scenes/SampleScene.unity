@@ -230,7 +230,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1824649419}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3246672bcafd8a74fbda3f0e0dcf75db, type: 3}
+  m_Script: {fileID: 11500000, guid: 981d663596f19b9468664f8421515e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 8841716084490982545, guid: bea59c9df0f862f4cbe65cf078b8f277, type: 3}
