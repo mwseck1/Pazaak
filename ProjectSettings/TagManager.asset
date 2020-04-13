@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - MainDeck
+  - Player1Space
   layers:
   - Default
   - TransparentFX

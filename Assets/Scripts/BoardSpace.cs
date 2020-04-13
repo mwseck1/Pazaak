@@ -5,11 +5,12 @@ using UnityEngine;
 public class BoardSpace : MonoBehaviour
 {
     int spaceScore;
-    bool hasCard;
+    public bool hasCard;
    
     void OnTriggerEnter2D(Collider2D cardCollider)
     {
-       spaceScore = cardCollider.gameObject.GetComponent<Card>().value;
+       GameObject.Find("Player 1 Score").GetComponent<Player1ScoreBoard>().playerScore += 
+                    cardCollider.gameObject.GetComponent<Card>().value;
        hasCard = true;
     }  
 
@@ -17,7 +18,7 @@ public class BoardSpace : MonoBehaviour
     void Start()
     {
         spaceScore = 0;
-        hasCard = true;
+        hasCard = false;
     }
 
     // Update is called once per frame

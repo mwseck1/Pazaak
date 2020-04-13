@@ -12,12 +12,10 @@ public class MainDeck : Deck
             card.GetComponent<Card>().value = i;
             if(i == 1)
             {
-                card.SetActive(true);
-                Vector3 firstPosition = GameObject.Find("Space").GetComponent<Transform>().position;
-
-                cards.Add(Instantiate(card, firstPosition, Quaternion.identity) as GameObject);
                 
-                card.SetActive(false);
+                //Vector3 firstPosition = GameObject.Find("Space").GetComponent<Transform>().position;
+
+                cards.Add(Instantiate(card, new Vector3(0,0,0), Quaternion.identity) as GameObject);
                 cards.Add(Instantiate(card, new Vector3(0,0,0), Quaternion.identity) as GameObject);
                 cards.Add(Instantiate(card, new Vector3(0,0,0), Quaternion.identity) as GameObject);
                 cards.Add(Instantiate(card, new Vector3(0,0,0), Quaternion.identity) as GameObject); 
