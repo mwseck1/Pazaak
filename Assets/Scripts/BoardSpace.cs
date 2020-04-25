@@ -9,9 +9,12 @@ public class BoardSpace : MonoBehaviour
    
     void OnTriggerEnter2D(Collider2D cardCollider)
     {
-       GameObject.Find("Player 1 Score").GetComponent<Player1ScoreBoard>().playerScore += 
+       if(cardCollider.gameObject.name != "GameBoard")
+       {
+            GameObject.Find("Player 1 Score").GetComponent<Player1ScoreBoard>().playerScore += 
                     cardCollider.gameObject.GetComponent<Card>().value;
-       hasCard = true;
+            hasCard = true;
+       }  
     }  
 
     // Start is called before the first frame update
