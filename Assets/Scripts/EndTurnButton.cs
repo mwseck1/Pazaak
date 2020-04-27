@@ -3,31 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EndTurnButton : MonoBehaviour
-{
-    GameObject[] player1Spaces;
-    GameObject nextSpace;
-    List<GameObject> mainDeckCards;
-    int spaceIndex;
+{    
+    P1Controller player1Controller;
     
-
     public void OnEndTurnButtonPress()
-    {
-        GameObject nextcard = mainDeckCards[0];
-        mainDeckCards.RemoveAt(0);
-
-        GameObject nextSpace = player1Spaces[spaceIndex];
-        spaceIndex++;
-
-        nextcard.GetComponent<Transform>().position = nextSpace.GetComponent<Transform>().position;
-        nextcard.SetActive(true);
+    {      
+        CheckScore();
+        GameObject.Find("MainDeck").GetComponent<MainDeck>().PlayNextCard(player1Controller.playerNumber);
     }
     
+    void CheckScore()
+    {
+        if(GameObject.Find("Player 1 Score").GetComponent<Player1ScoreBoard>().playerScore > 20)
+        {
+            Debug.Log("Player 1 Loses");
+
+            // reset the scene
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        player1Spaces = GameObject.FindGameObjectsWithTag("Player1Space");
-        mainDeckCards = GameObject.Find("MainDeck").GetComponent<MainDeck>().cards;
-        spaceIndex = 0;
+       player1Controller = GameObject.Find("Player1").GetComponent<P1Controller>();
     }
 
     // Update is called once per frame

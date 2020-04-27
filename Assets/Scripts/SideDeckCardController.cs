@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SideDeckCardController : Card
+public class SideDeckCardController : MonoBehaviour
 {
     private Vector3 originalPosition;
-    RaycastHit dropRay;
+    private RaycastHit dropRay;
+    private P1Controller player1Controller;
    
     void OnMouseDrag()
     {
-        GetComponent<BoxCollider2D>().enabled = false;
-        Vector3 mousePosition = Input.mousePosition;    
+       if(player1Controller.canPlayCard)
+       {
+           GetComponent<BoxCollider2D>().enabled = false;
+            Vector3 mousePosition = Input.mousePosition;    
         
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition); 
-        mousePosition.z = 1;
+            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition); 
+            mousePosition.z = 1;
         
-        GetComponent<Transform>().position = mousePosition;
+            GetComponent<Transform>().position = mousePosition;
+       }   
     }
     
     void OnMouseUp()
@@ -26,7 +30,9 @@ public class SideDeckCardController : Card
 
         if(dropRay.collider != null)
         {
-            Debug.Log(dropRay.collider.name);
+            transform.position = player1Controller.player1Spaces[player1Controller.spaceIndex].GetComponent<Transform>().position;
+            player1Controller.spaceIndex ++;
+            player1Controller.canPlayCard = false;
         }
         else
         {
@@ -39,11 +45,12 @@ public class SideDeckCardController : Card
     void Start()
     {
         originalPosition = GetComponent<Transform>().position;
+        player1Controller = GameObject.Find("Player1").GetComponent<P1Controller>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        
     }
 }

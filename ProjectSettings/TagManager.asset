@@ -7,6 +7,8 @@ TagManager:
   - MainDeck
   - Player1Space
   - Player1HS
+  - Player2Space
+  - Player2HS
   layers:
   - Default
   - TransparentFX
