@@ -23,8 +23,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         
         if(isConnecting)
         {    
-            PhotonNetwork.JoinRandomRoom(); 
-            isConnecting = false;
+            PhotonNetwork.JoinRandomRoom();    
         }
     }   
 
@@ -33,8 +32,6 @@ public class Launcher : MonoBehaviourPunCallbacks
         controlPanel.SetActive(true);
         connectionText.SetActive(false);
 
-        isConnecting = false;
-        
         Debug.LogWarningFormat("PUN Basics Tutorial/Launcher: OnDisconnected() was called by PUN with reason {0}", cause);
     }
     
@@ -47,14 +44,20 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("Room successfully joined.");
-
-        PhotonNetwork.LoadLevel(1);
+        if(PhotonNetwork.IsMasterClient)
+        {
+            Debug.Log("Room 1 successfully joined.");
+            PhotonNetwork.LoadLevel(1);
+        }
+        else
+        {
+            PhotonNetwork.LoadLevel(2);
+        }
     }
 
     void Awake()
     {
-        PhotonNetwork.AutomaticallySyncScene = true;
+        PhotonNetwork.AutomaticallySyncScene = false;
     }
 
     // Start is called before the first frame update
@@ -71,6 +74,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
         if(PhotonNetwork.IsConnected)
         {
+            PhotonNetwork.JoinRandomRoom();
         }  
         else
         {

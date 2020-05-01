@@ -1995,7 +1995,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player1Spaces: []
-  otherPlayersSpaces: []
   spaceIndex: 0
   canPlayCard: 0
   playerNumber: 0

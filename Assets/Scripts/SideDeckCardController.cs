@@ -1,13 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon;
+using Photon.Pun;
+using Photon.Realtime;
+using ExitGames.Client.Photon;
 
-public class SideDeckCardController : MonoBehaviour
+public class SideDeckCardController : MonoBehaviourPun
 {
     private Vector3 originalPosition;
     private RaycastHit dropRay;
     private P1Controller player1Controller;
    
+    byte eventCode = 1;
+
+    private void SendMove(int cardPlacementIndex)
+    {
+        RaiseEventOptions eventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.Others };
+        SendOptions sendOptions = new SendOptions { Reliability = true };
+        PhotonNetwork.RaiseEvent(eventCode, cardPlacementIndex ,eventOptions, sendOptions);
+    }
+
     void OnMouseDrag()
     {
        if(player1Controller.canPlayCard)
@@ -33,6 +46,8 @@ public class SideDeckCardController : MonoBehaviour
             transform.position = player1Controller.player1Spaces[player1Controller.spaceIndex].GetComponent<Transform>().position;
             player1Controller.spaceIndex ++;
             player1Controller.canPlayCard = false;
+            
+            SendMove(player1Controller.spaceIndex);
         }
         else
         {

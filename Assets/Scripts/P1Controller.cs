@@ -5,27 +5,31 @@ using UnityEngine;
 public class P1Controller : MonoBehaviour
 {
     public GameObject[] player1Spaces;
+    public GameObject[] otherPlayersSpaces;
     public int spaceIndex;
     public bool canPlayCard;
     public int playerNumber;
+    public bool isMyTurn;
 
-    private GameObject[] GetGameSpaces()
+    private GameObject[] GetBoardSpaces(string boardName)
     {
-        GameObject[] spaces = new GameObject[9];
+        GameObject[] boardSpaces = new GameObject[9];
 
         for(int i = 0; i < 9; i++)
         {
-            spaces[i] = GameObject.Find("BoardSpaces").GetComponent<Transform>().GetChild(i).gameObject;
+            boardSpaces[i] = GameObject.Find(boardName).GetComponent<Transform>().GetChild(i).gameObject;
         }
     
-        return spaces;
+        return boardSpaces;
     }
 
+    
     
     // Start is called before the first frame update
     void Start()
     {
-        player1Spaces = GetGameSpaces();
+        player1Spaces = GetBoardSpaces("BoardSpaces");
+        otherPlayersSpaces = GetBoardSpaces("Other Players Board Spaces");
         spaceIndex = 0;
         canPlayCard = true;
         playerNumber = 1;
