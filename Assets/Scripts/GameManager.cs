@@ -8,13 +8,29 @@ using ExitGames.Client.Photon;
 
 public class GameManager : MonoBehaviourPunCallbacks, IOnEventCallback
 {
+    [SerializeField]
+    private GameObject player;
+    private GameObject CardPrefab;
+    
     public void OnEvent(EventData otherPlayersMove)
     {
         if(otherPlayersMove.Code == 1)
         {
-            int cardPlacementBoardIndex = (int)otherPlayersMove.CustomData;
+            GameObject[] otherBoardSpaces = player.GetComponent<P1Controller>().otherPlayersSpaces;
 
+            object[] recievedData = (object[]) otherPlayersMove.CustomData;
+            int cardPlacementBoardIndex = (int)recievedData[0];
+            int movedCardValue = (int)recievedData[1];
+            string prefabName = (string)recievedData[2];
+
+            CardPrefab = (GameObject)Resources.Load(prefabName);
             
+            Vector3 cardPlacementPosition = otherBoardSpaces[cardPlacementBoardIndex].GetComponent<Transform>().position;
+            CardPrefab.GetComponent<Card>().value = movedCardValue;
+
+            GameObject newCard = Instantiate(CardPrefab, cardPlacementPosition, Quaternion.identity);   
+
+            newCard.SetActive(true);
         }
     }
 

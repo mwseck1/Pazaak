@@ -15,10 +15,11 @@ public class SideDeckCardController : MonoBehaviourPun
     byte eventCode = 1;
 
     private void SendMove(int cardPlacementIndex)
-    {
+    { 
         RaiseEventOptions eventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.Others };
+        object[] moveInformation = new object[] { cardPlacementIndex, this.gameObject.GetComponent<Card>().value, "SideDeckPlusCard" };
         SendOptions sendOptions = new SendOptions { Reliability = true };
-        PhotonNetwork.RaiseEvent(eventCode, cardPlacementIndex ,eventOptions, sendOptions);
+        PhotonNetwork.RaiseEvent(eventCode, moveInformation ,eventOptions, sendOptions);
     }
 
     void OnMouseDrag()
@@ -44,10 +45,11 @@ public class SideDeckCardController : MonoBehaviourPun
         if(dropRay.collider != null)
         {
             transform.position = player1Controller.player1Spaces[player1Controller.spaceIndex].GetComponent<Transform>().position;
-            player1Controller.spaceIndex ++;
-            player1Controller.canPlayCard = false;
             
             SendMove(player1Controller.spaceIndex);
+
+            player1Controller.spaceIndex ++;
+            player1Controller.canPlayCard = false;        
         }
         else
         {

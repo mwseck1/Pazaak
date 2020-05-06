@@ -19,7 +19,7 @@ public class P1Controller : MonoBehaviour
         {
             boardSpaces[i] = GameObject.Find(boardName).GetComponent<Transform>().GetChild(i).gameObject;
         }
-    
+
         return boardSpaces;
     }
 
