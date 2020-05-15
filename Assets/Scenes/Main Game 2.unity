@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e960381187df549bf894857ced436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCard: 0
+  card: {fileID: 0}
 --- !u!61 &205038410
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e960381187df549bf894857ced436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCard: 0
+  card: {fileID: 0}
 --- !u!61 &273156450
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e960381187df549bf894857ced436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCard: 0
+  card: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,7 +884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e960381187df549bf894857ced436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCard: 0
+  card: {fileID: 0}
 --- !u!61 &776657827
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1016,7 +1016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e960381187df549bf894857ced436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCard: 0
+  card: {fileID: 0}
 --- !u!61 &896617546
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1285,7 +1285,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: End Turn
+  m_Text: Stand
 --- !u!222 &960667947
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1430,7 +1430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e960381187df549bf894857ced436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCard: 0
+  card: {fileID: 0}
 --- !u!61 &1045726613
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1523,7 +1523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e960381187df549bf894857ced436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCard: 0
+  card: {fileID: 0}
 --- !u!61 &1114947199
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1616,7 +1616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e960381187df549bf894857ced436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCard: 0
+  card: {fileID: 0}
 --- !u!61 &1204895863
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1889,7 +1889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e960381187df549bf894857ced436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCard: 0
+  card: {fileID: 0}
 --- !u!61 &1398844062
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1998,7 +1998,6 @@ MonoBehaviour:
   otherPlayersSpaces: []
   spaceIndex: 0
   canPlayCard: 0
-  playerNumber: 0
   isMyTurn: 0
 --- !u!1 &1519756134
 GameObject:
@@ -2044,7 +2043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e960381187df549bf894857ced436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCard: 0
+  card: {fileID: 0}
 --- !u!61 &1519756137
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2211,7 +2210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e960381187df549bf894857ced436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCard: 0
+  card: {fileID: 0}
 --- !u!61 &1574874090
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2304,7 +2303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e960381187df549bf894857ced436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCard: 0
+  card: {fileID: 0}
 --- !u!61 &1603880402
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2442,7 +2441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e960381187df549bf894857ced436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCard: 0
+  card: {fileID: 0}
 --- !u!61 &1649269496
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2535,7 +2534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e960381187df549bf894857ced436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCard: 0
+  card: {fileID: 0}
 --- !u!61 &1670186102
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2732,6 +2731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScore: 0
+  playerName: My
 --- !u!1 &1759149308
 GameObject:
   m_ObjectHideFlags: 0
@@ -2777,7 +2777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e960381187df549bf894857ced436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCard: 0
+  card: {fileID: 0}
 --- !u!61 &1759149311
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2870,7 +2870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e960381187df549bf894857ced436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCard: 0
+  card: {fileID: 0}
 --- !u!61 &1775214275
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2963,7 +2963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e960381187df549bf894857ced436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCard: 0
+  card: {fileID: 0}
 --- !u!61 &1818545710
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3101,7 +3101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e960381187df549bf894857ced436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCard: 0
+  card: {fileID: 0}
 --- !u!61 &1875485499
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3162,7 +3162,7 @@ GameObject:
   - component: {fileID: 2075232534}
   - component: {fileID: 2075232533}
   m_Layer: 5
-  m_Name: P2 End Turn Button
+  m_Name: Stand Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3330,6 +3330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScore: 0
+  playerName: Their
 --- !u!114 &2084345573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3401,8 +3402,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1452095611}
-  plusCardPrefab: {fileID: 6489267757433681929, guid: 33436c80ad3fa784dbf90fe59a4b9ec0,
-    type: 3}
+  myScoreBoard: {fileID: 1696209555}
+  theirScoreBoard: {fileID: 2084345570}
 --- !u!4 &6969058384337704075
 Transform:
   m_ObjectHideFlags: 0

@@ -14,10 +14,10 @@ public class MainDeck : Deck
    
     byte eventCode = 1;
 
-    private void SendMove(int cardPlacementIndex)
+    private void SendMove(int cardPlacementIndex , GameObject nextCard)
     { 
         RaiseEventOptions eventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.Others };
-        object[] moveInformation = new object[] { cardPlacementIndex, this.gameObject.GetComponent<Card>().value, "MainDeckCard" };
+        object[] moveInformation = new object[] { cardPlacementIndex, nextCard.GetComponent<Card>().value, "MainDeckCard" };
         SendOptions sendOptions = new SendOptions { Reliability = true };
         PhotonNetwork.RaiseEvent(eventCode, moveInformation ,eventOptions, sendOptions);
     }
@@ -33,31 +33,25 @@ public class MainDeck : Deck
             cards.Add(Instantiate(card, new Vector3(0,0,0), Quaternion.identity) as GameObject);
             cards.Add(Instantiate(card, new Vector3(0,0,0), Quaternion.identity) as GameObject);
             cards.Add(Instantiate(card, new Vector3(0,0,0), Quaternion.identity) as GameObject);
-            cards.Add(Instantiate(card, new Vector3(0,0,0), Quaternion.identity) as GameObject); 
-            
-            
+            cards.Add(Instantiate(card, new Vector3(0,0,0), Quaternion.identity) as GameObject);  
         }
 
        player1Controller = GameObject.Find("Player1").GetComponent<P1Controller>();
-       
-       PlayNextCard(2);
     }
 
-    public void PlayNextCard(int playerNumber)
+    public void PlayNextCard()
     {
-        GameObject nextcard = cards[0];
+        GameObject nextCard = cards[0];
         cards.RemoveAt(0);
 
         GameObject nextSpace = player1Controller.player1Spaces[player1Controller.spaceIndex];
-        
-        nextcard.GetComponent<Transform>().position = nextSpace.GetComponent<Transform>().position;
-        nextcard.SetActive(true);
+    
+        nextCard.GetComponent<Transform>().position = nextSpace.GetComponent<Transform>().position;
+        nextCard.SetActive(true);
 
-        //SendMove(player1Controller.spaceIndex);
-        
+        SendMove(player1Controller.spaceIndex, nextCard);
+    
         player1Controller.spaceIndex++;
-        
-       
     }
 
     // Update is called once per frame

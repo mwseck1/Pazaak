@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class Player1ScoreBoard : MonoBehaviour
 {
     public int playerScore;
-    
+    public string playerName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,6 @@ public class Player1ScoreBoard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Text>().text = "Player 1 Score: " + playerScore;
+        GetComponent<Text>().text = playerName + " Score: " + playerScore;
     }
 }

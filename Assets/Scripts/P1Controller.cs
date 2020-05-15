@@ -8,7 +8,6 @@ public class P1Controller : MonoBehaviour
     public GameObject[] otherPlayersSpaces;
     public int spaceIndex;
     public bool canPlayCard;
-    public int playerNumber;
     public bool isMyTurn;
 
     private GameObject[] GetBoardSpaces(string boardName)
@@ -22,17 +21,28 @@ public class P1Controller : MonoBehaviour
 
         return boardSpaces;
     }
+    
+    public void ResetGameBoards()
+    {
+        for(int i = 0; i < 9; i++)
+        {
+           GameObject myCard = player1Spaces[i].GetComponent<BoardSpace>().card;
+           GameObject theirCard = otherPlayersSpaces[i].GetComponent<BoardSpace>().card;
+           
+           if(myCard != null)
+             Destroy(myCard);
 
-    
-    
+           if(theirCard != null)
+            Destroy(theirCard);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         player1Spaces = GetBoardSpaces("BoardSpaces");
         otherPlayersSpaces = GetBoardSpaces("Other Players Board Spaces");
         spaceIndex = 0;
-        canPlayCard = true;
-        playerNumber = 1;
     }
 
     // Update is called once per frame
